@@ -1,0 +1,5 @@
+model\GenericDAO.class
+module-info.class
+controller\ListagemUsuariosController.class
+model\Usuario.class
+util\AlertaUtil.class

@@ -6,6 +6,7 @@ dal\ConexaoBD.class
 model\GenericDAO.class
 controller\LoginController.class
 model\LoginDAO.class
+util\Validacoes.class
 module-info.class
 controller\ListagemUsuariosController.class
 model\UsuarioDAO.class

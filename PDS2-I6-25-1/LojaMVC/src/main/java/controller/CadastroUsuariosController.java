@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import model.Usuario;
 import model.UsuarioDAO;
 import util.AlertaUtil;
+import util.Validacoes;
 
 public class CadastroUsuariosController {
     Stage stageCadastroUsuarios;
@@ -52,6 +53,8 @@ public class CadastroUsuariosController {
 
     @FXML
     private TextField txtTelefone;
+    
+    Validacoes validacao = new Validacoes();
 
     @FXML
     void btnExcluirClick(ActionEvent event) throws SQLException {
@@ -93,42 +96,33 @@ public class CadastroUsuariosController {
             AlertaUtil.mostrarErro("Erro", "Todos os campos devem ser preenchidos.");
             return;
         }
-
-        // Validação básica do telefone: (00) 00000-0000
-        /*if (telefone.length() != 14 ||
-            telefone.charAt(0) != '(' ||
-            telefone.charAt(3) != ')' ||
-            telefone.charAt(4) != ' ' ||
-            telefone.charAt(10) != '-') {
-
-            AlertaUtil.mostrarErro("Erro", "Telefone deve estar no formato (00) 00000-0000.");
+        
+        if(validacao.ValidaFormatoTelefone(txtTelefone.getText())){
             return;
         }
         
-         // Validação básica do email
-        if (!email.contains("@") || !email.contains(".")) {
-            AlertaUtil.mostrarErro("Erro", "Email inválido. o email deve conter '@' e '.'");
+        if(validacao.ValidaFormatEmail(txtEmail.getText())){
             return;
-        }*/
-    
-    if (usuarioSelecionado == null) {
-        incluir(txtNome.getText(),
-                txtTelefone.getText(),
-                txtLogin.getText(),
-                txtSenha.getText(),
-                cbPerfil.getValue(),
-                txtEmail.getText(),
-                dataAniversario); 
-    } else {
-        alterar(usuarioSelecionado.getId(),
-                txtNome.getText(),
-                txtTelefone.getText(),
-                txtLogin.getText(),
-                txtSenha.getText(),
-                cbPerfil.getValue(),
-                txtEmail.getText(),
-                dataAniversario);  
-    }
+        }
+        
+        if (usuarioSelecionado == null) {
+            incluir(txtNome.getText(),
+                    txtTelefone.getText(),
+                    txtLogin.getText(),
+                    txtSenha.getText(),
+                    cbPerfil.getValue(),
+                    txtEmail.getText(),
+                    dataAniversario); 
+        } else {
+            alterar(usuarioSelecionado.getId(),
+                    txtNome.getText(),
+                    txtTelefone.getText(),
+                    txtLogin.getText(),
+                    txtSenha.getText(),
+                    cbPerfil.getValue(),
+                    txtEmail.getText(),
+                    dataAniversario);  
+        }
     }
 
     

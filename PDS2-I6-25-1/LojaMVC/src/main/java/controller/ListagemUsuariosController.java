@@ -129,8 +129,7 @@ public class ListagemUsuariosController {
             colunaAniversario.setCellValueFactory(u
                     -> u.getValue().aniversarioProperty());
             
-            
-
+           
             tabelaUsuarios.getColumns().addAll(colunaID,
                     colunaNome, colunaFone, colunaLogin,
                     colunaPerfil, colunaEmail, colunaAniversario);

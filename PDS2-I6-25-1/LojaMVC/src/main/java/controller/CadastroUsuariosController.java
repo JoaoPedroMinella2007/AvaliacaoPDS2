@@ -72,24 +72,63 @@ public class CadastroUsuariosController {
 
     @FXML
     void btnIncluirAlterarClick(ActionEvent event) throws SQLException {
-        if(usuarioSelecionado == null){
-            incluir(txtNome.getText(),
-                    txtTelefone.getText(),
-                    txtLogin.getText(),
-                    txtSenha.getText(),
-                    cbPerfil.getValue(),
-                    txtEmail.getText(),
-                    dtAniversario.getValue());
-        } else {
-            alterar(usuarioSelecionado.getId(),
-                    txtNome.getText(),
-                    txtTelefone.getText(),
-                    txtLogin.getText(),
-                    txtSenha.getText(),
-                    cbPerfil.getValue(),
-                    txtEmail.getText(),
-                    dtAniversario.getValue());
+         
+        String nome = txtNome.getText();
+        String telefone = txtTelefone.getText();
+        String login = txtLogin.getText();
+        String senha = txtSenha.getText();
+        String perfil = cbPerfil.getValue();
+        String email = txtEmail.getText();
+        LocalDate aniversario = dtAniversario.getValue();
+        
+        java.sql.Date dataAniversario = null;
+
+        if (aniversario != null) {
+            dataAniversario = java.sql.Date.valueOf(aniversario);
         }
+
+        // VALIDAÇÕES BÁSICAS
+        if (nome.isEmpty() || telefone.isEmpty() || login.isEmpty() ||
+            senha.isEmpty() || email.isEmpty()) {
+            AlertaUtil.mostrarErro("Erro", "Todos os campos devem ser preenchidos.");
+            return;
+        }
+
+        // Validação básica do telefone: (00) 00000-0000
+        /*if (telefone.length() != 14 ||
+            telefone.charAt(0) != '(' ||
+            telefone.charAt(3) != ')' ||
+            telefone.charAt(4) != ' ' ||
+            telefone.charAt(10) != '-') {
+
+            AlertaUtil.mostrarErro("Erro", "Telefone deve estar no formato (00) 00000-0000.");
+            return;
+        }
+        
+         // Validação básica do email
+        if (!email.contains("@") || !email.contains(".")) {
+            AlertaUtil.mostrarErro("Erro", "Email inválido. o email deve conter '@' e '.'");
+            return;
+        }*/
+    
+    if (usuarioSelecionado == null) {
+        incluir(txtNome.getText(),
+                txtTelefone.getText(),
+                txtLogin.getText(),
+                txtSenha.getText(),
+                cbPerfil.getValue(),
+                txtEmail.getText(),
+                dataAniversario); 
+    } else {
+        alterar(usuarioSelecionado.getId(),
+                txtNome.getText(),
+                txtTelefone.getText(),
+                txtLogin.getText(),
+                txtSenha.getText(),
+                cbPerfil.getValue(),
+                txtEmail.getText(),
+                dataAniversario);  
+    }
     }
 
     
@@ -111,10 +150,14 @@ public class CadastroUsuariosController {
             txtLogin.setText(user.getLogin());
             txtSenha.setText(user.getSenha());
             txtEmail.setText(user.getEmail());
-            dtAniversario.setValue(LocalDate.MIN);
+            if(user.getAniversario() != null){
+            dtAniversario.setValue(user.getAniversario().toLocalDate());
+            } else {
+            dtAniversario.setValue(null);
+            }       
             cbPerfil.getItems().addAll("admin", "user");
             cbPerfil.setValue(user.getPerfil());
-        }
+            }
     }
 
     void incluir(String nome, String fone, 

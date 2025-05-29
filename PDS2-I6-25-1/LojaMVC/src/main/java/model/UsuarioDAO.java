@@ -10,7 +10,7 @@ public class UsuarioDAO extends GenericDAO {
 
     // Método para salvar usuarios
     public void salvar(Usuario usuario) throws SQLException {
-        String insert = "INSERT INTO USUARIOS(nome, fone, login, senha, perfil) VALUES(?,?,?,?,?,?,?)";
+        String insert = "INSERT INTO USUARIOS(nome, fone, login, senha, perfil, email, aniversario) VALUES(?,?,?,?,?,?,?)";
           save(insert, usuario.getNome(), usuario.getFone(), usuario.getLogin(), usuario.getSenha(), usuario.getPerfil(), usuario.getEmail(), usuario.getAniversario());
     }
 

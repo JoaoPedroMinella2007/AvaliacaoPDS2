@@ -10,6 +10,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
+import model.Cliente;
+import model.ClienteDAO;
 
 public class App extends Application {
 
@@ -32,8 +36,25 @@ public class App extends Application {
         telaLogin.show();
     }
 
-    public static void main(String[] args) {
-        launch();
+    public static void main(String[] args) throws SQLException {
+        
+        ClienteDAO clienteDAO = new ClienteDAO();
+        
+        //Cria um novo cliente
+        Cliente novoCliente = new Cliente();
+        
+        novoCliente.setNome("João Pedro");
+        novoCliente.setTelefone("47858585898");
+        novoCliente.setEndereco("Rua Clara Schmitz, 93");
+        novoCliente.setDataNascimento(Date.valueOf("2007-01-25"));
+        
+        //Insere o cliente no banco de dados
+        clienteDAO.inserirCliente(novoCliente);
+        
+        //Lista os clientes cadastrados no banco de dados
+        clienteDAO.listarClientes();
+        
+        //launch();
     }
 
 }

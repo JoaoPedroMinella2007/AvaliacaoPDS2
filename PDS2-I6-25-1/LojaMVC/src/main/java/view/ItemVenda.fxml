@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.ItemVendaController">
+   <children>
+      <TableView fx:id="tableViewItemVenda" layoutX="43.0" layoutY="81.0" prefHeight="238.0" prefWidth="515.0" />
+      <Label layoutX="145.0" layoutY="14.0" text="LISTAGEM DE VENDAS">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnFechar" layoutX="275.0" layoutY="347.0" mnemonicParsing="false" onAction="#OnActionFecharTela" text="Fechar" />
+   </children>
+</AnchorPane>

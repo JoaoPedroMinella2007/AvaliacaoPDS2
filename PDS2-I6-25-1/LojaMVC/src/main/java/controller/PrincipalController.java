@@ -24,6 +24,9 @@ import util.AlertaUtil;
 public class PrincipalController {
 
     private Stage stagePrincipal;
+    
+    @FXML
+    private MenuItem cadastrarCliente;
 
     @FXML
     private Label lblUsuario;
@@ -76,6 +79,11 @@ public class PrincipalController {
         telaListagemUsuarios.show();
     }
 
+   @FXML
+   void OnActionCadastrarCliente(ActionEvent event) throws IOException{
+       
+   }
+    
     @FXML
     void menuFecharClick(ActionEvent event) {
         Optional<ButtonType> resultado = AlertaUtil.mostrarConfirmacao("Atenção", "Tem certeza que deseja fechar a aplicação?");

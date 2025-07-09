@@ -14,9 +14,12 @@ controller\CadastroUsuariosController.class
 model\Venda.class
 controller\PrincipalController.class
 principal\App.class
+controller\ProdutoViewController.class
 model\ItemVenda.class
 dal\ConexaoBD.class
+controller\ItemVendaController.class
 util\Validacoes.class
+controller\VendaViewController.class
 model\ProdutoDAO.class
 model\VendaDAO.class
 util\AlertaUtil.class

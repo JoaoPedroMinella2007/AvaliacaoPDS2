@@ -27,6 +27,9 @@ public class PrincipalController {
     
     @FXML
     private MenuItem cadastrarCliente;
+    
+    @FXML
+    private MenuItem cadastrarProduto;
 
     @FXML
     private Label lblUsuario;
@@ -45,12 +48,73 @@ public class PrincipalController {
 
     @FXML
     private MenuItem menuRelatorioUsuarios;
+    
+    @FXML
+    private MenuItem menuRelatorioClientes;
+
+    @FXML
+    private MenuItem menuRelatorioProdutos;
 
     @FXML
     private Menu menuRelatorios;
 
     @FXML
     private MenuItem menuSobre;
+
+     @FXML
+    void OnActionMenuRelatorioClientes(ActionEvent event) throws IOException {
+        URL url = new File("src/main/java/view/ListagemUsuarios.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        
+        Stage telaListagemUsuarios = new Stage();
+        
+        ListagemUsuariosController luc = loader.getController();
+
+        luc.setStage(telaListagemUsuarios);
+
+        telaListagemUsuarios.setOnShown(evento -> {
+            try {
+                luc.ajustarElementosJanela();
+            } catch (Exception ex) {
+                Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
+        Scene scene = new Scene(root);
+        
+        telaListagemUsuarios.setTitle("Listagem de Usuários");
+        telaListagemUsuarios.setScene(scene);
+        telaListagemUsuarios.show();
+    }
+
+    @FXML
+    void OnActionMenuRelatorioProdutos(ActionEvent event) throws IOException {
+        URL url = new File("src/main/java/view/ItemVenda.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        
+        Stage telaItemVenda = new Stage();
+        
+        ItemVendaController ivc = loader.getController();
+
+        ivc.setStage(telaItemVenda);
+
+        telaItemVenda.setOnShown(evento -> {
+            try {
+                ivc.ajustarElementosJanela();
+            } catch (Exception ex) {
+                Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
+        Scene scene = new Scene(root);
+        
+        telaItemVenda.setTitle("Itens a venda");
+        telaItemVenda.setScene(scene);
+        telaItemVenda.show();
+
+    }
 
     @FXML
     void menuCadastroUsuariosClick(ActionEvent event) throws IOException {
@@ -78,10 +142,60 @@ public class PrincipalController {
         telaListagemUsuarios.setScene(scene);
         telaListagemUsuarios.show();
     }
+    
+    @FXML
+    void menuCadastroProdutoClick(ActionEvent event) throws IOException {
+        URL url = new File("src/main/java/view/ProdutoView.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        
+        Stage telaCadastroProduto = new Stage();
+        
+        ProdutoViewController luc = loader.getController();
+
+        luc.setStage(telaCadastroProduto);
+
+        telaCadastroProduto.setOnShown(evento -> {
+            try {
+                luc.ajustarElementosJanela();
+            } catch (Exception ex) {
+                Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
+        Scene scene = new Scene(root);
+        
+        telaCadastroProduto.setTitle("Cadastro de produto");
+        telaCadastroProduto.setScene(scene);
+        telaCadastroProduto.show();
+        
+
+    }
 
    @FXML
    void OnActionCadastrarCliente(ActionEvent event) throws IOException{
-       
+       URL url = new File("src/main/java/view/ClienteView.fxml").toURI().toURL();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        
+        Stage telaClienteView = new Stage();
+        
+        ClienteViewController cvc = loader.getController();
+
+        cvc.setStage(telaClienteView);
+
+        telaClienteView.setOnShown(evento -> {
+        try {
+            cvc.ajustarElementosJanela(null);  
+        } catch (Exception ex) {
+            Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    });
+        Scene scene = new Scene(root);
+        
+        telaClienteView.setTitle("Cadastro de clientes");
+        telaClienteView.setScene(scene);
+        telaClienteView.show();
    }
     
     @FXML

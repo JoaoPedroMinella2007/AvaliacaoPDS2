@@ -14,13 +14,14 @@
           <Menu fx:id="menuCadastro" mnemonicParsing="false" text="Cadastro">
             <items>
                   <MenuItem fx:id="menuCadastroUsuarios" mnemonicParsing="false" onAction="#menuCadastroUsuariosClick" text="Usuários" />
+                  <MenuItem fx:id="cadastrarProduto" mnemonicParsing="false" onAction="#menuCadastroProdutoClick" text="Produto" />
                   <MenuItem fx:id="cadastrarCliente" mnemonicParsing="false" onAction="#OnActionCadastrarCliente" text="Clientes" />
               <MenuItem fx:id="menuFechar" mnemonicParsing="false" onAction="#menuFecharClick" text="Fechar" />
             </items>
           </Menu>
           <Menu fx:id="menuRelatorios" mnemonicParsing="false" text="Relatórios">
             <items>
-              <MenuItem fx:id="menuRelatorioUsuarios" mnemonicParsing="false" text="Usuários" />
+                  <MenuItem fx:id="menuRelatorioProdutos" mnemonicParsing="false" onAction="#OnActionMenuRelatorioProdutos" text="Produtos" />
             </items>
           </Menu>
           <Menu fx:id="menuAjuda" mnemonicParsing="false" text="Ajuda">

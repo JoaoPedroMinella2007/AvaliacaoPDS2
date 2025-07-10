@@ -80,26 +80,23 @@ public class VendaViewController {
         }
 
         try {
-            // 1. Criar venda
             Venda venda = new Venda();
             venda.setDataCompra(Date.valueOf(LocalDate.parse(txtfdDataCompra.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
-            venda.setValorTotal((long) produtoSelecionado.getValor());
+            venda.setValorTotal((double) produtoSelecionado.getValor());
             venda.setIdCliente(clienteSelecionado.getId());
 
             VendaDAO vendaDAO = new VendaDAO();
-            vendaDAO.inserirVenda(venda); // Supondo que insere e gera o ID automaticamente
+            vendaDAO.inserirVenda(venda); 
 
-            // 2. Criar item venda
             ItemVenda itemVenda = new ItemVenda();
-            itemVenda.setIdVenda(venda.getId()); // Você pode precisar ajustar isso caso o ID seja gerado automaticamente e precise ser recuperado
+            itemVenda.setIdVenda(venda.getId()); 
             itemVenda.setIdProduto(produtoSelecionado.getId());
-            itemVenda.setPrecoUnitario((long) produtoSelecionado.getValor());
+            itemVenda.setPrecoUnitario((double) produtoSelecionado.getValor());
             itemVenda.setQuantidade(1);
 
             ItemVendaDAO itemVendaDAO = new ItemVendaDAO();
             itemVendaDAO.inserirItemVenda(itemVenda);
 
-            // 3. Atualizar estoque do produto
             produtoSelecionado.setQuantidadeEstoque(produtoSelecionado.getQuantidadeEstoque() - 1);
             ProdutoDAO produtoDAO = new ProdutoDAO();
             produtoDAO.atualizarProduto(produtoSelecionado);

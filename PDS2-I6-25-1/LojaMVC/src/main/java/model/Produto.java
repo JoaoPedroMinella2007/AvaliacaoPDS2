@@ -3,21 +3,21 @@ package model;
 public class Produto {
     private int id;
     private String descricao;
-    private long valor;
+    private double valor;
     private int quantidadeEstoque;
     
     public Produto(){
         
     }
 
-    public Produto(int id, String descricao, long valor, int quantidadeEstoque) {
+    public Produto(int id, String descricao, double valor, int quantidadeEstoque) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
         this.quantidadeEstoque = quantidadeEstoque;
     }
     
-    public Produto(String descricao, long valor, int quantidadeEstoque) {
+    public Produto(String descricao, double valor, int quantidadeEstoque) {
         this.descricao = descricao;
         this.valor = valor;
         this.quantidadeEstoque = quantidadeEstoque;
@@ -47,7 +47,7 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public void setValor(long valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 

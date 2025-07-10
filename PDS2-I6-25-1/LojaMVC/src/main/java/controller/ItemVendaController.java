@@ -148,6 +148,5 @@ public class ItemVendaController {
     }
 
     void ajustarElementosJanela() {
-        // Método vazio, mas deixei aqui caso queira configurar elementos da tela futuramente.
     }
 }

@@ -38,7 +38,7 @@ public class ProdutoViewController {
             return; 
         }
 
-        long valor = Long.parseLong(valorTexto);
+        double valor = Double.parseDouble(valorTexto);
         int quantidadeEstoque = Integer.parseInt(quantidadeTexto);
 
         Produto produto = new Produto(descricao, valor, quantidadeEstoque);

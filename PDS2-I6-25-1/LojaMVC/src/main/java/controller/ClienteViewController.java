@@ -56,9 +56,6 @@ public class ClienteViewController {
     private Stage stage;
     private Cliente clienteAtual;
 
-    /**
-     * Salva o cliente no banco e atualiza a tabela da própria tela.
-     */
     @FXML
     void btnSalvarOnActionPerformed(ActionEvent event) {
         String nome = txtNome.getText();
@@ -98,7 +95,7 @@ public class ClienteViewController {
 
             AlertaUtil.mostrarInformacao("Sucesso", "Cliente salvo com sucesso!");
 
-            carregarClientesTabela(); // ✅ Atualiza a tabela da própria tela
+            carregarClientesTabela();
             limparCampos();
 
         } catch (Exception e) {
@@ -107,9 +104,6 @@ public class ClienteViewController {
         }
     }
 
-    /**
-     * Preenche os campos para editar um cliente (se vier da listagem).
-     */
     public void ajustarElementosJanela(Cliente cliente) {
         this.clienteAtual = cliente;
         if (cliente != null) {
@@ -133,9 +127,6 @@ public class ClienteViewController {
         this.stage = telaCadastroCliente;
     }
 
-    /**
-     * Carrega os clientes do banco e preenche a tabela.
-     */
     public void carregarClientesTabela() {
         try {
             ClienteDAO dao = new ClienteDAO();
@@ -155,9 +146,6 @@ public class ClienteViewController {
         }
     }
 
-    /**
-     * Limpa os campos após salvar.
-     */
     private void limparCampos() {
         txtNome.clear();
         txtTelefone.clear();

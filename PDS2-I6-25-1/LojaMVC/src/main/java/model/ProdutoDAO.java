@@ -42,7 +42,7 @@ public class ProdutoDAO {
                 Produto p = new Produto(
                     rs.getInt("id"),
                     rs.getString("descricao"),
-                    rs.getLong("valor"),
+                    rs.getDouble("valor"),
                     rs.getInt("quantidade_estoque")
                 );
                 produtos.add(p);

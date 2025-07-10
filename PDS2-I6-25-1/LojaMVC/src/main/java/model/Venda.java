@@ -5,21 +5,21 @@ import java.sql.Date;
 public class Venda {
     private int id;
     private Date dataCompra;
-    private long valorTotal;
+    private double valorTotal;
     
     private int idCliente;
 
     public Venda() {
     }
 
-    public Venda(int id, Date dataCompra, long valorTotal, int idCliente) {
+    public Venda(int id, Date dataCompra, double valorTotal, int idCliente) {
         this.id = id;
         this.dataCompra = dataCompra;
         this.valorTotal = valorTotal;
         this.idCliente = idCliente;
     }
     
-    public Venda(Date dataCompra, long valorTotal, int idCliente) {
+    public Venda(Date dataCompra, double valorTotal, int idCliente) {
         this.dataCompra = dataCompra;
         this.valorTotal = valorTotal;
         this.idCliente = idCliente;
@@ -41,11 +41,11 @@ public class Venda {
         this.dataCompra = dataCompra;
     }
 
-    public long getValorTotal() {
+    public double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(long valorTotal) {
+    public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
 

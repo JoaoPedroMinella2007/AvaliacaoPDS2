@@ -3,7 +3,7 @@ package model;
 public class ItemVenda {
     private int id;
     private int quantidade;
-    private long precoUnitario;
+    private double precoUnitario;
     
     private int idVenda;
     private int idProduto;
@@ -11,7 +11,7 @@ public class ItemVenda {
     public ItemVenda() {
     }
 
-    public ItemVenda(int id, int quantidade, long precoUnitario, int idVenda, int idProduto) {
+    public ItemVenda(int id, int quantidade, double precoUnitario, int idVenda, int idProduto) {
         this.id = id;
         this.quantidade = quantidade;
         this.precoUnitario = precoUnitario;
@@ -19,7 +19,7 @@ public class ItemVenda {
         this.idProduto = idProduto;
     }
     
-    public ItemVenda(int quantidade, long precoUnitario, int idVenda, int idProduto) {
+    public ItemVenda(int quantidade, double precoUnitario, int idVenda, int idProduto) {
         this.quantidade = quantidade;
         this.precoUnitario = precoUnitario;
         this.idVenda = idVenda;
@@ -42,11 +42,11 @@ public class ItemVenda {
         this.quantidade = quantidade;
     }
 
-    public long getPrecoUnitario() {
+    public double getPrecoUnitario() {
         return precoUnitario;
     }
 
-    public void setPrecoUnitario(long precoUnitario) {
+    public void setPrecoUnitario(double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
 

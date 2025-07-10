@@ -19,7 +19,7 @@ public class ItemVendaDAO {
         stmt.setInt(2, itemVenda.getIdVenda());
         stmt.setInt(3, itemVenda.getIdProduto());
         stmt.setInt(4, itemVenda.getQuantidade()); 
-        stmt.setLong(5, itemVenda.getPrecoUnitario()); 
+        stmt.setDouble(5, itemVenda.getPrecoUnitario()); 
 
         stmt.executeUpdate();
 
@@ -42,7 +42,7 @@ public class ItemVendaDAO {
                 int idVenda = rs.getInt("venda_id");
                 int idProduto = rs.getInt("produto_id");
                 int quantidade = rs.getInt("quantidade");
-                long precoUnitario = rs.getLong("preco_unitario");
+                double precoUnitario = rs.getLong("preco_unitario");
                
                 System.out.println("ID: " + id + "\nID da venda: " + idVenda + "\nID do produto: " + idProduto +
                         "\nQuantidade: " + quantidade + "\nPreço unitário: " + precoUnitario);

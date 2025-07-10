@@ -16,7 +16,7 @@ public class VendaDAO {
          PreparedStatement stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
 
         stmt.setDate(1, venda.getDataCompra());
-        stmt.setLong(2, venda.getValorTotal());
+        stmt.setDouble(2, venda.getValorTotal());
         stmt.setInt(3, venda.getIdCliente());
 
         int affectedRows = stmt.executeUpdate();
@@ -48,7 +48,7 @@ public class VendaDAO {
             while(rs.next()){
                 int id = rs.getInt("id");
                 Date dataCompra = rs.getDate("data_compra");
-                long valor = rs.getLong("valor_total");
+                double valor = rs.getDouble("valor_total");
                 int idCliente = rs.getInt("cliente_id");
                 
                 System.out.println("ID: " + id + "\nData de compra: " + dataCompra + "\nValor total: " + valor +
